@@ -17,10 +17,6 @@ const app = express();
 var path = require("path");
 var views = path.join(__dirname, "views");
 
-// View engine setup
-app.set("view engine", "ejs");
-app.set("view engine", "hbs");
-
 // Starting Server
 blog
   .initialize()
