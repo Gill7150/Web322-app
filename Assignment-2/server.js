@@ -46,11 +46,7 @@ app.get("/blog", function (req, res) {
   blog
     .getPublishedPosts()
     .then(function (data) {
-      if (data.length > 0) {
-        res.json(data);
-      } else {
-        res.json(data);
-      }
+      res.json(data);
     })
     .catch((err) => {
       res.json({ message: "No Results" });
@@ -62,11 +58,7 @@ app.get("/posts", (req, res) => {
   blog
     .getAllPosts()
     .then((data) => {
-      if (data.length > 0) {
-        res.json(data);
-      } else {
-        res.json(data);
-      }
+      res.json(data);
     })
     .catch(() => {
       res.json({ message: "No Results" });
