@@ -96,6 +96,19 @@ module.exports.getCategories = function () {
     });
 }
 
+module.exports.getPublishedPostsByCategory = function (categoryy) {
+    return new Promise((resolve, reject) => {
+        let items = posts.filter(eachObj => eachObj.category == categoryy && eachObj.published == true);
+        if (items.length == 0) {
+            reject('no record found');
+        }
+        else{
+            resolve(items)
+        }
+    });
+    
+}
+
 module.exports.addPost = function (postData) {
     return new Promise((resolve, reject) => {
         postData.published = (postData.published) ? true : false;
@@ -105,7 +118,7 @@ module.exports.addPost = function (postData) {
             }
         }
         postData.postDate = new Date();
-        Post.create(postData).then(function (data) {
+        posts.create(postData).then(function (data) {
             resolve(data)
         }).catch(function (error) {
             reject("No record Found");
